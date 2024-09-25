@@ -1,33 +1,33 @@
 <header class="header-section">
     <div class="container">
         <div class="logo">
-            <a routerLink="/"><img src="https://i.ibb.co/9hhgkSF/logo-1.png" alt="Logo"></a>
+            <a routerLink="/">
+                <img src="https://i.ibb.co/9hhgkSF/logo-1.png" alt="Logo">
+            </a>
         </div>
         <div class="nav-menu">
             <nav class="mainmenu mobile-menu">
                 <ul>
-                    <li routerLinkActive="active"><a routerLink="/">Home</a></li>
-                    <li routerLinkActive="active"><a routerLink="/about">About</a></li>
-                    <li routerLinkActive="active">
-                        <a href="#">Speakers</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Jayden</a></li>
-                            <li><a href="#">Sara</a></li>
-                            <li><a href="#">Emma</a></li>
-                            <li><a href="#">Harriet</a></li>
+                    <li *ngFor="let item of navItems" [routerLinkActive]="'active'">
+                        <a [routerLink]="item.route">{{ item.name }}</a>
+
+                        <!-- Dropdown menu for speakers -->
+                        <ul class="dropdown" *ngIf="item.children">
+                            <li *ngFor="let child of item.children">
+                                <a [routerLink]="child.route">{{ child.name }}</a>
+                            </li>
                         </ul>
                     </li>
-                    <li routerLinkActive="active"><a routerLink="/schedule">Schedule</a></li>
-                    <li routerLinkActive="active"><a routerLink="/blog">Blog</a></li>
-                    <li routerLinkActive="active"><a routerLink="/contact">Contacts</a></li>
                 </ul>
             </nav>
-            <a href="#" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Ticket</a>
+            <a href="#" class="primary-btn top-btn">
+                <i class="fa fa-ticket"></i> Ticket
+            </a>
         </div>
+        <!-- Mobile Menu -->
         <div id="mobile-menu-wrap">
             <div class="slicknav_menu">
-                <a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed"
-                    style="outline: none;">
+                <a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed">
                     <span class="slicknav_menutxt">MENU</span>
                     <span class="slicknav_icon">
                         <span class="slicknav_icon-bar"></span>
@@ -37,23 +37,16 @@
                 </a>
                 <nav class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
                     <ul>
-                        <li routerLinkActive="active"><a routerLink="/">Home</a></li>
-                        <li routerLinkActive="active"><a routerLink="/about">About</a></li>
-                        <li class="slicknav_collapsed slicknav_parent">
-                            <a href="#" role="menuitem" aria-haspopup="true" tabindex="-1"
-                                class="slicknav_item slicknav_row" style="outline: none;">
-                                <span>Speakers</span> <span class="slicknav_arrow">►</span>
-                            </a>
-                            <ul class="dropdown slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
-                                <li><a href="#" role="menuitem" tabindex="-1">Jayden</a></li>
-                                <li><a href="#" role="menuitem" tabindex="-1">Sara</a></li>
-                                <li><a href="#" role="menuitem" tabindex="-1">Emma</a></li>
-                                <li><a href="#" role="menuitem" tabindex="-1">Harriet</a></li>
+                        <li *ngFor="let item of navItems" [routerLinkActive]="'active'">
+                            <a [routerLink]="item.route">{{ item.name }}</a>
+
+                            <!-- Mobile Dropdown menu for speakers -->
+                            <ul class="dropdown" *ngIf="item.children">
+                                <li *ngFor="let child of item.children">
+                                    <a [routerLink]="child.route">{{ child.name }}</a>
+                                </li>
                             </ul>
                         </li>
-                        <li routerLinkActive="active"><a routerLink="/schedule">Schedule</a></li>
-                        <li routerLinkActive="active"><a routerLink="/blog">Blog</a></li>
-                        <li routerLinkActive="active"><a routerLink="/contact">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
