@@ -1,6 +1,8 @@
 # themewagon-manup-angular-free
 Manup is a free Angular-based Bootstrap template designed for event management websites using Angular 18.
 
+![Demo](image.png)
+
 ## Offfers
 It offers a sophisticated platform for organizing and managing events with a sleek, modern design and all the essential features an event website requires. Additionally, it is fully responsive and optimized for the latest web browsers.
 
